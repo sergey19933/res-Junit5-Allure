@@ -74,6 +74,7 @@ public class DepositsPage extends BasePage {
 
     @Step("Выбираем чекбокс '{nameField}' значением '{onOff}'")
     public DepositsPage clickCheckboxPage(String nameField, String onOff) {
+        actions.pause(1000).build().perform();
         pageManager.getMethodsUtilsPage().choiceChekBox(nameField, onOff);
         actions.pause(1000).build().perform();
         return this;
@@ -92,18 +93,18 @@ public class DepositsPage extends BasePage {
 
         switch (nameField) {
             case "К снятию через 6 месяцев:":
-                Assertions.assertEquals(checkFillWithdrawing.getText()
-                        .replaceAll("[^0-9,]", ""), value, "Не совпадает");
+                Assertions.assertEquals( value,checkFillWithdrawing.getText()
+                        .replaceAll("[^0-9,]", ""), "Не совпадает");
                 break;
             case "Пополнение за 6 месяцев:":
 
-                Assertions.assertEquals(checkFillTopUp.getText()
-                        .replaceAll("[^0-9,]", ""), value, "Не совпадает");
+                Assertions.assertEquals( value,checkFillTopUp.getText()
+                        .replaceAll("[^0-9,]", ""), "Не совпадает");
                 break;
             case "Начислено %:":
 
-                Assertions.assertEquals(checkFillAccrued.getText()
-                        .replaceAll("[^0-9,]", ""), value, "Не совпадает");
+                Assertions.assertEquals( value, checkFillAccrued.getText()
+                        .replaceAll("[^0-9,]", ""),"Не совпадает");
                 break;
             default:
                 Assertions.fail("Поле с наименованием '" + nameField + "' отсутствует на странице ");

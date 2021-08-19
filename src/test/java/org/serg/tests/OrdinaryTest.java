@@ -18,8 +18,7 @@ public class OrdinaryTest extends BaseTests {
                 .fillFieldPage("Ежемесячное пополнение","50000")
                 .investment("6 месяцев")
                 .clickCheckboxPage("Ежемесячная капитализация","Включить")
-                .clickCheckboxPage("Ежемесячная капитализация","Отключить")
-                .clickCheckboxPage("Ежемесячная капитализация","Включить")
+
                 .checkFillPage("К снятию через 6 месяцев:","562243,26")
                 .checkFillPage("Начислено %:","12243,26")
                 .checkFillPage("Пополнение за 6 месяцев:","250000");
